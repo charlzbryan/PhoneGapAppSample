@@ -11,7 +11,7 @@ $(function() {
             { 
                       'answer': 'b',
                       'question': 'If someone whistles at you, you..',
-                      options: ['Cry', 'Meh..Whatever', 'Laugh']
+                      options: ['Cry', 'Meh..whatever', 'Laugh']
             },
           { 
               'answer': 'b',
@@ -57,6 +57,11 @@ $(function() {
               'answer': 'b',
                       'question': 'What would you prefer to be called ?',
                       options: ['Snehasaurus Rex', 'Merlyn Sneha Merlyn', 'Snehanski']
+          },
+          { 
+              'answer': 'a',
+                      'question': 'Sneha Louis, will you marry me ?',
+                      options: ['Yes', 'No', 'Um hmmmm']
           }
         ];
         
@@ -64,13 +69,12 @@ $(function() {
         // was answered correctly
         $('input[type="submit"]').click(function() {
             var val = $('#questions').find('input:checked').val();
-            if(questionsOver>=9){
-                //alert("Done !");
-              $.mobile.changePage( "#page2", { transition: "slideup", changeHash: false });
-            }
             if(currentQuestion) {
                 if(currentQuestion.answer == val) {
-                    //alert("Nice work!");
+                    if(questionsOver>=10){
+                        alert("Woohoo !");
+                        //$.mobile.changePage( "#page2", { transition: "slideup", changeHash: false });
+                    }
                     questionsOver=questionsOver+1;
                     showQuestion();
                 } else {
